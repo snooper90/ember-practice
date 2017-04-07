@@ -1,0 +1,13 @@
+<div class="todo-item">
+   <span {{action "showContent"}} class={{if completed "complete"}} >
+     {{ title }}
+   </span>
+   : <button {{action "onButtonClick"  on="click"}}>
+     {{ if completed "X" "✓" }}
+   </button>
+   <div class={{if selcted "content" "hide" }} >
+      <span class={{if completed "complete"}}>
+        {{content}}
+      </span>
+   </div>
+</div>

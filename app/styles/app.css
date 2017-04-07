@@ -1,0 +1,13 @@
+span.complete {
+  text-decoration: line-through;
+}
+.hide {
+  display:none;
+}
+
+.todo-board .ember-view:nth-child(even) {
+  background-color: #CCC;
+}
+.todo-board .ember-view:nth-child(odd) {
+  background-color: #FFF;
+}

@@ -1,0 +1,41 @@
+
+{{!-- each todo needs
+  name:text,
+  content:text,
+  completed:Bool,
+  dateRequired:Date,
+  dateCreated:Date,
+  dateModified:Date
+--}}
+Search: {{input placeholder="todo" value=serchParams}} (to be worked on)
+<br/>
+New Todo: <button {{action "showNewTodo"  on="click"}}> New </button>
+<div id="new-Todo" class={{if showingNewTodo "" "hide"}}>
+  <div class="todo-item">
+     {{input value=newTodo.title}}
+
+     <div class="content">
+       {{textarea value=newTodo.content}}
+     </div>
+  </div>
+</div>
+<div class="todo-board">
+  {{#if newTodo.title }}
+    {{todo-item
+      title=newTodo.title
+      content=newTodo.content
+    }}
+
+  {{/if}}
+  {{#each model as |item|}}
+    {{todo-item
+      title=item.title
+      content=item.content
+      completed=item.completed
+      saveTodo=(route-action "updateCompletion")
+    }}
+  {{/each}}
+</div>
+
+
+{{outlet}}
